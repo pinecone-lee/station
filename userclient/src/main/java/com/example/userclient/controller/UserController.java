@@ -11,11 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserController {
     @RequestMapping("/user")
-    @ResponseBody
-    public String user(@RequestParam(value = "str",defaultValue = "qdd") String str){
-//        ModelAndView mv = new ModelAndView("index");
-//        mv.addObject("str",str);
-        return str;
+    public String user(String name,Model model){
+        model.addAttribute("str",name);
+        return "index";
     }
 
 }
