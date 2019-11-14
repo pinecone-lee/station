@@ -1,0 +1,21 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: user-client
+  freemarker:
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    charset: utf-8
+eureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/eureka/
