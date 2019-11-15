@@ -2,8 +2,13 @@ server:
   port: 8761
 
 spring:
+  devtools:
+    restart:
+      enabled: true
   application:
     name: eureka-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/station?serverTimezone=UTC&useSSL=false&characterEncoding=utf8
 
 eureka:
   instance:

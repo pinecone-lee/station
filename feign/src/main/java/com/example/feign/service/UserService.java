@@ -10,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @FeignClient(value = "user-client")
 public interface UserService {
-    @RequestMapping("/user")
-    String user(@RequestParam String name);
+    @RequestMapping("/")
+    String login();
+
+    @RequestMapping("/log")
+    String do_login(@RequestParam String id,@RequestParam String pwd);
 }

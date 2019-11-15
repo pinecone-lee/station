@@ -18,8 +18,13 @@ public class UserController {
     @Resource
     UserService userService;
 
-    @RequestMapping("/user")
-    public String user(@RequestParam String name){
-        return userService.user(name);
+    @RequestMapping("/")
+    public String login(){
+        return userService.login();
+    }
+
+    @RequestMapping("/log")
+    public String do_login(@RequestParam String id,@RequestParam String pwd){
+        return userService.do_login(id,pwd);
     }
 }

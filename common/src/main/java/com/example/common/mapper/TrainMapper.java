@@ -3,6 +3,8 @@ package com.example.common.mapper;
 import com.example.common.entity.Train;
 import com.example.common.entity.TrainExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 public interface TrainMapper {

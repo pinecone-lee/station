@@ -2,8 +2,13 @@ server:
   port: 8848
 
 spring:
+  devtools:
+    restart:
+      enabled: true
   application:
     name: service-feign
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/station?serverTimezone=UTC&useSSL=false&characterEncoding=utf8
 
 eureka:
   client:
