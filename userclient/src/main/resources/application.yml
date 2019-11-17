@@ -24,6 +24,8 @@ spring:
     template-loader-path: classpath:/templates/
     suffix: .ftl
     charset: utf-8
+  resources:
+    static-locations: classpath:/static/
 eureka:
   client:
     service-url:

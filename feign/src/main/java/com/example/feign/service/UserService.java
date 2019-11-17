@@ -11,8 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 @FeignClient(value = "user-client")
 public interface UserService {
     @RequestMapping("/")
-    String login();
+    String login(@RequestParam String token);
+
+    @RequestMapping("/reg")
+    String register();
+
+    @RequestMapping("/reg.check")
+    String register_check(@RequestParam String name,@RequestParam String sex,@RequestParam String pwd,@RequestParam String account,@RequestParam String phone,@RequestParam String idc,@RequestParam String check);
 
     @RequestMapping("/log")
-    String do_login(@RequestParam String id,@RequestParam String pwd);
+    String do_login(@RequestParam String account,@RequestParam String pwd,@RequestParam String token);
+
+    @RequestMapping("/logout")
+    String logout(@RequestParam String token);
 }
