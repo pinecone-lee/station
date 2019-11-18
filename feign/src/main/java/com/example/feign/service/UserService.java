@@ -24,4 +24,5 @@ public interface UserService {
 
     @RequestMapping("/logout")
     String logout(@RequestParam String token);
+
 }

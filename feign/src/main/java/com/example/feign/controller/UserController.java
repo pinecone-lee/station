@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping("/log")
-    public String do_login(@RequestParam String account, @RequestParam String pwd,HttpServletRequest request,HttpServletResponse response) throws InterruptedException {
+    public String do_login(@RequestParam String account, @RequestParam String pwd,HttpServletRequest request,HttpServletResponse response)  {
         String token = UUID.randomUUID().toString();
         CookieUtils.setCookie(request,response,"station_token",token);
         return userService.do_login(account,pwd,token);

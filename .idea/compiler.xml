@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="feign" />
+        <module name="fileclient" />
+        <module name="pwdclient" />
         <module name="server" />
         <module name="service" />
         <module name="userclient" />
@@ -16,6 +18,8 @@
     <bytecodeTargetLevel>
       <module name="common" target="1.8" />
       <module name="feign" target="1.8" />
+      <module name="fileclient" target="1.8" />
+      <module name="pwdclient" target="1.8" />
       <module name="server" target="1.8" />
       <module name="service" target="1.8" />
       <module name="station" target="1.8" />
@@ -26,6 +30,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="feign" options="-parameters" />
+      <module name="fileclient" options="-parameters" />
+      <module name="pwdclient" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="station" options="-parameters" />

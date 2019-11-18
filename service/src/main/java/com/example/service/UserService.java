@@ -33,6 +33,19 @@ public class UserService {
         return userMapper.selectByExample(userExample).isEmpty();
     }
 
+    public Boolean checkToSave(Integer id, String account,String phone,String idc){
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria1 = userExample.createCriteria();
+        criteria1.andIdNotEqualTo(id).andAccountEqualTo(account);
+        UserExample.Criteria criteria2 = userExample.createCriteria();
+        criteria2.andIdNotEqualTo(id).andPhoneEqualTo(phone);
+        userExample.or(criteria2);
+        UserExample.Criteria criteria3 = userExample.createCriteria();
+        criteria3.andIdNotEqualTo(id).andIdcardEqualTo(idc);
+        userExample.or(criteria3);
+        return userMapper.selectByExample(userExample).isEmpty();
+    }
+
     public void addToRegister(String name,String sex,String pwd,String account,String phone,String idc){
         User user = new User();
         user.setName(name);
@@ -43,5 +56,31 @@ public class UserService {
         user.setIdcard(idc);
         user.setStatus(1);
         userMapper.insertSelective(user);
+    }
+
+    public User findFile(Integer id){
+        return userMapper.selectByPrimaryKey(id);
+    }
+
+    public void saveFile(Integer id,String name,String sex, String account, String phone, String idc){
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        user.setSex(sex);
+        user.setAccount(account);
+        user.setPhone(phone);
+        user.setIdcard(idc);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public void savePwd(Integer id,String pw){
+        User user = new User();
+        user.setId(id);
+        user.setPassword(pw);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public Boolean confirmPassword(Integer id,String pwd){
+        return userMapper.selectByPrimaryKey(id).getPassword().equals(pwd);
     }
 }

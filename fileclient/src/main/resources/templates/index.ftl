@@ -3,15 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>火车购票系统</title>
-<link rel="stylesheet" type="text/css" href="css/home.css" />
+<link rel="stylesheet" type="text/css" href="/css/home.css" />
+<script type="text/javascript" src="/js/hide.js"></script>
 </head>
 
 <body>
 <!--head-->
+<input type="hidden" id="show" value="m1"/>
    <div class="header">
    		<div class="inner">
    			<div class="logo">
-                <a><img src="images/gdpu.png" width="350" height="60"/></a>
+                <a><img src="/images/gdpu.png" width="350" height="60"/></a>
    			</div>
    			<div class="headlink">
    				<#--<a href="login.html">登录</a>-->
@@ -31,16 +33,17 @@
 <div class="middle">
    <div class="cont">
    <!--菜单-->
-       <div class="class">
-         <ul>
-           <h3 style="color:#FFF;">栏目分类</h3>
-           <a href="#" class="net"><li>申请订票</li></a>
-           <a href="#" class="_all2"><li>火车时刻表</li></a>
-           <a href="#" class="_all3"><li>我的火车票</li></a>
-           <a href="#" class="_all4"><li>修改密码</li></a>
-           <a href="#" class="_all5"><li>联系我们</li></a>
-         </ul>
-       </div>
+       <#include "left.ftl">
+       <#--<div class="class">-->
+         <#--<ul>-->
+           <#--<h3 style="color:#FFF;">栏目分类</h3>-->
+           <#--<a href="#" class="net"><li>申请订票</li></a>-->
+           <#--<a href="#" class="_all2"><li>火车时刻表</li></a>-->
+           <#--<a href="#" class="_all3"><li>我的火车票</li></a>-->
+           <#--<a href="#" class="_all4"><li>修改密码</li></a>-->
+           <#--<a href="#" class="_all5"><li>联系我们</li></a>-->
+         <#--</ul>-->
+       <#--</div>-->
        <!--菜单 end-->
        <!--指南-->
      <div class="class_a">
@@ -90,34 +93,34 @@
 <input name="play" style="width:80px; height:30px; " type="submit" value="预定" />
 
 </div>
-<span style="float:right;">注：标注*为必填项！</span>
+<#--<span style="float:right;">注：标注*为必填项！</span>-->
 </form>                     
    </div>
   <!--申请订票 end--> 
   <!--火车时刻表-->
-           <div class="all2">
-           <h4 style="color:#fff">火车时刻表</h4>
-        <iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="http://www.chepiao100.com/application/views/statics/doc/demo/yupiao.php" width="1000" height="544"></iframe>
-           </div>
+           <#--<div class="all2">-->
+           <#--<h4 style="color:#fff">火车时刻表</h4>-->
+        <#--&lt;#&ndash;<iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="http://www.chepiao100.com/application/views/statics/doc/demo/yupiao.php" width="1000" height="544"></iframe>&ndash;&gt;-->
+           <#--</div>-->
    <!--火车时刻表--> 
     <!--我的火车票--> 
-           <div class="all3">
-           <h4 style="color:#fff">我的火车票</h4>
-           
-           </div>
+           <#--<div class="all3">-->
+           <#--<h4 style="color:#fff">我的火车票</h4>-->
+           <#---->
+           <#--</div>-->
          <!--我的火车票 end--> 
           <!--修改密码-->    
-           <div class="all4" id="all4">
-           <h4 style="color:#fff">修改密码</h4>
-           </div>
-           
+           <#--<div class="all4" id="all4">-->
+           <#--<h4 style="color:#fff">修改密码</h4>-->
+           <#--</div>-->
+           <#---->
             <!--修改密码 end--> 
              <!--联系我们--> 
-           <div class="all5">
-          <h4 style="color:#fff">☏&nbsp;&nbsp;联系我们</h4>
-          
-       
-          </div>
+           <#--<div class="all5">-->
+          <#--<h4 style="color:#fff">☏&nbsp;&nbsp;联系我们</h4>-->
+          <#---->
+       <#---->
+          <#--</div>-->
              <!--联系我们 end--> 
          </div>
           <!--指南 end-->
@@ -138,7 +141,7 @@
 <p>更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </div>
 </body>
-<script src="js/jquery.min.js"></script>
-<script src="js/home.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/home.js"></script>
 
 </html>

@@ -37,8 +37,8 @@ onload=function () {
 	 }
 	 if(name.length<1)
 	 {
-		 $(".t5").html('请输入真实姓名').css("color","#F00").css("font-size","16px");
-		 alert("请输入真实姓名");
+		 $(".t5").html('请输入姓名').css("color","#F00").css("font-size","16px");
+		 alert("请输入姓名");
 		 return;
 	 }
 	 if(!p_name.test(name)/* && !patrn_1.test(username)*/)

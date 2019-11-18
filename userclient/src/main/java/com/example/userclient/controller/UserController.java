@@ -1,17 +1,14 @@
 package com.example.userclient.controller;
 
 
-import com.example.common.util.CookieUtils;
 import com.example.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -19,11 +16,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/")
-    public String login(String token){
+    public String login(String token,Model model){
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
             if(jedis.get(token)!=null){
-                return "index";
+                model.addAttribute("feign","/user/index");
+                return "feign";
             }
         }
         return "login";
@@ -62,7 +60,8 @@ public class UserController {
             Jedis jedis = new Jedis("localhost");
             jedis.set(token,String.valueOf(id));
             jedis.expire(token,3600);
-            return "index";
+            model.addAttribute("feign","/user/index");
+            return "feign";
         }
         model.addAttribute("alert","<script>alert('账号或密码错误')</script>");
         model.addAttribute("account",account);
