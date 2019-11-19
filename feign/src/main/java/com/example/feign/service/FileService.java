@@ -13,6 +13,4 @@ public interface FileService {
     @RequestMapping("/user/file.save")
     String file_save(@RequestParam String name, @RequestParam String sex, @RequestParam String account, @RequestParam String phone, @RequestParam String idc, @RequestParam String token);
 
-    @RequestMapping("/user/index")
-    String index();
 }

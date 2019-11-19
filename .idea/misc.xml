@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/userclient/pom.xml" />
         <option value="$PROJECT_DIR$/fileclient/pom.xml" />
         <option value="$PROJECT_DIR$/pwdclient/pom.xml" />
+        <option value="$PROJECT_DIR$/buyclient/pom.xml" />
       </list>
     </option>
   </component>

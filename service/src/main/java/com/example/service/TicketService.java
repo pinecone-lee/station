@@ -45,6 +45,14 @@ public class TicketService {
         return list;
     }
 
+    public Ticket findTicket(Integer tid,String style){
+        TicketExample ticketExample = new TicketExample();
+        ticketExample.createCriteria().andTidEqualTo(tid).andStyleEqualTo(style);
+        return ticketMapper.selectByExample(ticketExample).get(0);
+    }
 
-
+    public void reduce(Ticket ticket,Integer num){
+        ticket.setCounts(ticket.getCounts()-num);
+        ticketMapper.updateByPrimaryKeySelective(ticket);
+    }
 }

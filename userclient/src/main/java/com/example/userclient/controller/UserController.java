@@ -20,7 +20,7 @@ public class UserController {
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
             if(jedis.get(token)!=null){
-                model.addAttribute("feign","/user/index");
+                model.addAttribute("feign","/user/buy");
                 return "feign";
             }
         }
@@ -60,7 +60,7 @@ public class UserController {
             Jedis jedis = new Jedis("localhost");
             jedis.set(token,String.valueOf(id));
             jedis.expire(token,3600);
-            model.addAttribute("feign","/user/index");
+            model.addAttribute("feign","/user/buy");
             return "feign";
         }
         model.addAttribute("alert","<script>alert('账号或密码错误')</script>");

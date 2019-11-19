@@ -23,6 +23,7 @@
         <module>userclient</module>
         <module>fileclient</module>
         <module>pwdclient</module>
+        <module>buyclient</module>
     </modules>
 
     <properties>

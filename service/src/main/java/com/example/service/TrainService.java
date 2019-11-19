@@ -83,4 +83,7 @@ public class TrainService {
         return list;
     }
 
+    public Train findById(Integer id){
+        return trainMapper.selectByPrimaryKey(id);
+    }
 }

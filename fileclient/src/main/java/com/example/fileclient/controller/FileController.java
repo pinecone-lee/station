@@ -36,8 +36,4 @@ public class FileController {
         return "/user/file";
     }
 
-    @RequestMapping("/user/index")
-    public String index(){
-        return "index";
-    }
 }

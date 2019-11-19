@@ -42,4 +42,16 @@ public class OrdersService {
         orders.setPrice(price);
         return ordersMapper.insert(orders);
     }
+
+    public Integer findOrderTicket(Integer uid, Integer ttid){
+        OrdersExample ordersExample = new OrdersExample();
+        ordersExample.createCriteria().andUidEqualTo(uid).andTtidEqualTo(ttid);
+        List<Orders> list = ordersMapper.selectByExample(ordersExample);
+        if(list.isEmpty()) return 0;
+        Integer sum = 0;
+        for(Orders orders:list){
+            sum = sum + orders.getNumber();
+        }
+        return sum;
+    }
 }

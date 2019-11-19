@@ -28,8 +28,4 @@ public class FileController {
         return fileService.file_save(name,sex,account,phone,idc,token);
     }
 
-    @RequestMapping("/user/index")
-    public String index(){
-        return fileService.index();
-    }
 }

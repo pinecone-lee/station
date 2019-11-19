@@ -92,3 +92,34 @@ $(".alter").click(function(){
         return false;
     }
 });
+
+$(".next").click(function(){
+    var res = verifyCode.validate(document.getElementById("code_input").value);
+    var train = $("input[name='train']").val().trim();
+    var style = document.getElementById('style').value;
+    var ticket = $("input[name='ticket']").val().trim();
+    var p_ticket=/^[1-5]$/;
+    if(!res){
+        alert("验证码错误");
+        document.getElementById("code_input").value="";
+        return false;
+    }
+    if(train.length==0)
+    {
+        alert("请输入车次");
+        return false;
+    }
+    if(style==0)
+    {
+        alert("请选择座位类型");
+        return false;
+    }
+    if(!p_ticket.test(ticket)){
+        alert("订购票数格式不正确");
+        return false;
+    }
+    else {
+        document.getElementById('f').submit();
+        return true;
+    }
+});
