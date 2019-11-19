@@ -40,6 +40,7 @@ public class OrdersService {
         orders.setNumber(number);
         orders.setStatus(status);
         orders.setPrice(price);
+        orders.setDate(date);
         return ordersMapper.insert(orders);
     }
 
