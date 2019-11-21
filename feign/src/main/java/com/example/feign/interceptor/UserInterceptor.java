@@ -18,7 +18,7 @@ public class UserInterceptor implements HandlerInterceptor {
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
             if(jedis.get(token)!=null) {
-                return true;
+                if(jedis.get(jedis.get(token)).equals(token)) return true;
             }
         }
         response.sendRedirect("/expire");

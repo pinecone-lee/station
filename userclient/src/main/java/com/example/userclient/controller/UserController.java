@@ -20,8 +20,10 @@ public class UserController {
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
             if(jedis.get(token)!=null){
-                model.addAttribute("feign","/user/buy");
-                return "feign";
+                if(jedis.get(jedis.get(token)).equals(token)){
+                    model.addAttribute("feign","/user/buy");
+                    return "feign";
+                }
             }
         }
         return "login";
@@ -59,7 +61,9 @@ public class UserController {
         if(id!=-1) {
             Jedis jedis = new Jedis("localhost");
             jedis.set(token,String.valueOf(id));
+            jedis.set(String.valueOf(id),token);
             jedis.expire(token,3600);
+            jedis.expire(String.valueOf(id),3600);
             model.addAttribute("feign","/user/buy");
             return "feign";
         }
