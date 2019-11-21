@@ -21,7 +21,7 @@ public class UserInterceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        response.sendRedirect("/");
+        response.sendRedirect("/expire");
         return false;
     }
 

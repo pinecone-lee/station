@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public String handler(){
-        return "blank";
+        return "error";
     }
 }

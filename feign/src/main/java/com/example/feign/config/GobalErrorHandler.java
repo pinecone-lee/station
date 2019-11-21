@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GobalErrorHandler implements ErrorController {
     private static final String ERROR_PATH="/error";
 
+    @RequestMapping("/expire")
+    public String expire(){
+        return "expire";
+    }
+
     @RequestMapping(value = ERROR_PATH)
     public String handleError(){
-        return "blank";
+        return "error";
     }
 
     @Override
