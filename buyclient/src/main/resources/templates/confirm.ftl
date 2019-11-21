@@ -41,7 +41,7 @@
                      <td width="120">车次编号：</td>
                      <td width="277.6"><input name="train" value="${train!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>
                      <td width="120">开出时刻：</td>
-                     <td width="277.6"><input value="${tr.start?time!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>
+                     <td width="277.6"><input value="${tr.start?string('HH:mm')!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>
                  </tr>
                  <tr>
                      <td width="120">座位类型：</td>
