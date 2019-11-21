@@ -16,9 +16,9 @@ public class BuyController {
     private BuyService buyService;
 
     @RequestMapping("/user/buy")
-    public String buy(HttpServletRequest request){
+    public String buy(HttpServletRequest request, @RequestParam(value = "train",defaultValue = "") String train, @RequestParam(value = "style",defaultValue = "") String style ){
         String token = CookieUtils.getCookieValue(request,"station_token");
-        return buyService.buy(token);
+        return buyService.buy(token,train,style);
     }
 
     @RequestMapping("/user/confirm")

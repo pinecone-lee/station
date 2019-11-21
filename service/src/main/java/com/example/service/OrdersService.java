@@ -15,6 +15,14 @@ public class OrdersService {
     @Resource
     private OrdersMapper ordersMapper;
 
+    public Orders findbyid(int id){
+        return ordersMapper.selectByPrimaryKey(id);
+    }
+
+    public List<Orders> findBy(OrdersExample ordersExample){
+        return ordersMapper.selectByExample(ordersExample);
+    }
+
     public List<Orders> findAll(){
         OrdersExample ordersExample = new OrdersExample();
         OrdersExample.Criteria criteria = ordersExample.createCriteria();
@@ -46,7 +54,7 @@ public class OrdersService {
 
     public Integer findOrderTicket(Integer uid, Integer ttid){
         OrdersExample ordersExample = new OrdersExample();
-        ordersExample.createCriteria().andUidEqualTo(uid).andTtidEqualTo(ttid);
+        ordersExample.createCriteria().andUidEqualTo(uid).andTtidEqualTo(ttid).andStatusEqualTo("已订");
         List<Orders> list = ordersMapper.selectByExample(ordersExample);
         if(list.isEmpty()) return 0;
         Integer sum = 0;
@@ -54,5 +62,15 @@ public class OrdersService {
             sum = sum + orders.getNumber();
         }
         return sum;
+    }
+
+    public void updateOrderStatus(Integer uid){
+        OrdersExample ordersExample = new OrdersExample();
+        ordersExample.createCriteria().andUidEqualTo(uid).andDateLessThanOrEqualTo(new Date()).andStatusEqualTo("已订");
+        List<Orders> list = ordersMapper.selectByExample(ordersExample);
+        for(Orders orders:list){
+            orders.setStatus("完成");
+            ordersMapper.updateByPrimaryKey(orders);
+        }
     }
 }

@@ -35,16 +35,6 @@ ${alert!}
    <div class="cont">
    <!--菜单-->
        <#include "left.ftl">
-       <#--<div class="class">-->
-         <#--<ul>-->
-           <#--<h3 style="color:#FFF;">栏目分类</h3>-->
-           <#--<a href="#" class="net"><li>申请订票</li></a>-->
-           <#--<a href="#" class="_all2"><li>火车时刻表</li></a>-->
-           <#--<a href="#" class="_all3"><li>我的火车票</li></a>-->
-           <#--<a href="#" class="_all4"><li>修改密码</li></a>-->
-           <#--<a href="#" class="_all5"><li>联系我们</li></a>-->
-         <#--</ul>-->
-       <#--</div>-->
        <!--菜单 end-->
        <!--指南-->
      <div class="class_a">
@@ -56,8 +46,8 @@ ${alert!}
                  <tr>
                      <td width="120">姓名：</td>
                      <td width="277.6"><input value="${user.name!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>
-                     <td width="120">车次：</td>
-                     <td width="277.6" colspan="2"><input value="${train!}" name="train" placeholder="请输入车次" maxlength="10" style="width:250px; background:none;" type="text" /></td>
+                     <td width="120">车次编号：</td>
+                     <td width="277.6" colspan="2"><input value="${train!}" name="train" placeholder="请输入车次编号（仅数字）" maxlength="10" style="width:250px; background:none;" type="text" /></td>
                  </tr>
                  <tr>
                      <td width="120">性别：</td>

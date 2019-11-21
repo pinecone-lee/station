@@ -15,6 +15,10 @@ public class TrainService {
     @Resource
     TrainMapper trainMapper;
 
+    public List<Train> findby(TrainExample trainExample){
+        return trainMapper.selectByExample(trainExample);
+    }
+
     public int delete(int id){
         return trainMapper.deleteByPrimaryKey(id);
     }
@@ -75,12 +79,20 @@ public class TrainService {
 
     public List<Train> findUnite(String come, String destination, Date date){
         TrainExample trainExample = new TrainExample();
+        trainExample.setOrderByClause("data desc,start desc");
         TrainExample.Criteria criteria = trainExample.createCriteria();
-        criteria.andComeEqualTo(come);
-        criteria.andDestinationEqualTo(destination);
-        criteria.andDataEqualTo(date);
-        List list = trainMapper.selectByExample(trainExample);
-        return list;
+        if(come != null && !come.equals("")){
+            criteria.andComeLike("%"+come+"%");
+//            System.out.println("come不为空");
+        }
+        if(destination != null && !destination.equals("")){
+            criteria.andDestinationLike("%"+destination+"%");
+//            System.out.println("des不为空");
+        }
+        if(date!=null){
+            criteria.andDataEqualTo(date);
+        }
+        return trainMapper.selectByExample(trainExample);
     }
 
     public Train findById(Integer id){

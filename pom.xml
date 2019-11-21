@@ -24,6 +24,8 @@
         <module>fileclient</module>
         <module>pwdclient</module>
         <module>buyclient</module>
+        <module>ordersclient</module>
+        <module>trainclient</module>
     </modules>
 
     <properties>

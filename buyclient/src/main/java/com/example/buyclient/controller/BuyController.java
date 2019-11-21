@@ -31,9 +31,11 @@ public class BuyController {
     private OrdersService ordersService;
 
     @RequestMapping("/user/buy")
-    public String file(String token, Model model){
+    public String file(String token, String train, String style,Model model){
         Jedis jedis = new Jedis("localhost");
         User user = userService.findFile(Integer.valueOf(jedis.get(token)));
+        model.addAttribute("train",train);
+        model.addAttribute("style",style);
         model.addAttribute("user",user);
         return "buy";
     }
@@ -91,7 +93,7 @@ public class BuyController {
             model.addAttribute("user",user);
             return "buy";
         }
-        model.addAttribute("feign","/user/file");
+        model.addAttribute("feign","/user/order/show?page=1");
         return "feign";
     }
 

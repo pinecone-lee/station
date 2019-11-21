@@ -16,11 +16,6 @@
                 <a><img src="/images/gdpu.png" width="350" height="60"/></a>
    			</div>
    			<div class="headlink">
-   				<#--<a href="login.html">登录</a>-->
-   				<#--&nbsp;|&nbsp;-->
-   				<#--<a href="zhuce.html">注册</a>-->
-                <#--&nbsp;|&nbsp;-->
-			  <#--<a href="login.html">▶注销</a>-->
                 <a>火车购票系统</a>
                 &nbsp;|&nbsp;
                 <a href="/logout">注销</a>
@@ -34,16 +29,6 @@
    <div class="cont">
    <!--菜单-->
        <#include "left.ftl">
-       <#--<div class="class">-->
-         <#--<ul>-->
-           <#--<h3 style="color:#FFF;">栏目分类</h3>-->
-           <#--<a href="#" class="net"><li>申请订票</li></a>-->
-           <#--<a href="#" class="_all2"><li>火车时刻表</li></a>-->
-           <#--<a href="#" class="_all3"><li>我的火车票</li></a>-->
-           <#--<a href="#" class="_all4"><li>修改密码</li></a>-->
-           <#--<a href="#" class="_all5"><li>联系我们</li></a>-->
-         <#--</ul>-->
-       <#--</div>-->
        <!--菜单 end-->
        <!--指南-->
      <div class="class_a">
@@ -53,7 +38,7 @@
              <form id="f" method="post" action="/user/buying">
              <table width="800" height="300" style="margin:auto; margin-top:50px; border:1px solid #FFF;" border="1" cellpadding="0" cellspacing="0" >
                  <tr>
-                     <td width="120">车次：</td>
+                     <td width="120">车次编号：</td>
                      <td width="277.6"><input name="train" value="${train!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>
                      <td width="120">开出时刻：</td>
                      <td width="277.6"><input value="${tr.start?time!}" style="width:250px; background:none;" type="text" readonly="readonly"/></td>

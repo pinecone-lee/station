@@ -6,10 +6,12 @@
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/feign/feign.iml" filepath="$PROJECT_DIR$/feign/feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/fileclient/fileclient.iml" filepath="$PROJECT_DIR$/fileclient/fileclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ordersclient/ordersclient.iml" filepath="$PROJECT_DIR$/ordersclient/ordersclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/pwdclient/pwdclient.iml" filepath="$PROJECT_DIR$/pwdclient/pwdclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
       <module fileurl="file://$PROJECT_DIR$/station.iml" filepath="$PROJECT_DIR$/station.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trainclient/trainclient.iml" filepath="$PROJECT_DIR$/trainclient/trainclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/userclient/userclient.iml" filepath="$PROJECT_DIR$/userclient/userclient.iml" />
     </modules>
   </component>

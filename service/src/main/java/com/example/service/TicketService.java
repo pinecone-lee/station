@@ -55,4 +55,19 @@ public class TicketService {
         ticket.setCounts(ticket.getCounts()-num);
         ticketMapper.updateByPrimaryKeySelective(ticket);
     }
+
+    public void increase(Ticket ticket,Integer num){
+        ticket.setCounts(ticket.getCounts()+num);
+        ticketMapper.updateByPrimaryKeySelective(ticket);
+    }
+
+    public Ticket findById(Integer tid){
+        return ticketMapper.selectByPrimaryKey(tid);
+    }
+
+    public List<Ticket> findbytid(int tid){
+        TicketExample ticketExample = new TicketExample();
+        ticketExample.createCriteria().andTidEqualTo(tid);
+        return ticketMapper.selectByExample(ticketExample);
+    }
 }
