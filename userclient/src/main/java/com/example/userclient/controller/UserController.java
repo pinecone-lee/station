@@ -1,6 +1,7 @@
 package com.example.userclient.controller;
 
 
+import com.example.common.entity.User;
 import com.example.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +21,11 @@ public class UserController {
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
             if(jedis.get(token)!=null){
-                if(jedis.get(jedis.get(token)).equals(token)){
+                if(jedis.get(jedis.get(token)+"#")!=null&&jedis.get(jedis.get(token)+"#").equals(token)){
                     model.addAttribute("feign","/user/buy");
+                    return "feign";
+                }else if(jedis.get(jedis.get(token)+"@")!=null&&jedis.get(jedis.get(token)+"@").equals(token)){
+                    model.addAttribute("feign","/admin/showuser");
                     return "feign";
                 }
             }
@@ -57,14 +61,20 @@ public class UserController {
 
     @RequestMapping("/log")
     public String do_login(String account, String pwd, Model model,String token){
-        Integer id = userService.findToLogin(account,pwd);
-        if(id!=-1) {
+        User user = userService.findToLogin(account,pwd);
+        if(user!=null) {
             Jedis jedis = new Jedis("localhost");
-            jedis.set(token,String.valueOf(id));
-            jedis.set(String.valueOf(id),token);
+            jedis.set(token,String.valueOf(user.getId()));
             jedis.expire(token,3600);
-            jedis.expire(String.valueOf(id),3600);
-            model.addAttribute("feign","/user/buy");
+            if(user.getStatus()>0){
+                jedis.set(user.getId()+"#",token);
+                jedis.expire(user.getId()+"#",3600);
+                model.addAttribute("feign","/user/buy");
+            }else {
+                jedis.set(user.getId()+"@",token);
+                jedis.expire(user.getId()+"@",3600);
+                model.addAttribute("feign","/admin/showuser");
+            }
             return "feign";
         }
         model.addAttribute("alert","<script>alert('账号或密码错误')</script>");
@@ -76,6 +86,8 @@ public class UserController {
     public String logout(String token){
         if(token!=null){
             Jedis jedis = new Jedis("localhost");
+            jedis.del(jedis.get(token)+"#");
+            jedis.del(jedis.get(token)+"@");
             jedis.del(token);
         }
         return "login";

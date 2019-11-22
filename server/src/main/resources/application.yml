@@ -8,7 +8,7 @@ spring:
   application:
     name: eureka-server
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/station?serverTimezone=UTC&useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/station?serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8
 
 eureka:
   instance:

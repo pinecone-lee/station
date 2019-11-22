@@ -26,6 +26,7 @@
         <module>buyclient</module>
         <module>ordersclient</module>
         <module>trainclient</module>
+        <module>adminclient</module>
     </modules>
 
     <properties>

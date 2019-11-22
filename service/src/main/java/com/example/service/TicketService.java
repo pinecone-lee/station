@@ -70,4 +70,12 @@ public class TicketService {
         ticketExample.createCriteria().andTidEqualTo(tid);
         return ticketMapper.selectByExample(ticketExample);
     }
+
+    public void deletebytid(int tid){
+        TicketExample ticketExample = new TicketExample();
+        TicketExample.Criteria criteria = ticketExample.createCriteria();
+        criteria.andTidEqualTo(tid);
+        ticketMapper.deleteByExample(ticketExample);
+    }
+
 }

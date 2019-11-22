@@ -13,16 +13,16 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public Integer findToLogin(String account,String pwd){
+    public User findToLogin(String account,String pwd){
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andAccountEqualTo(account);
         criteria.andPasswordEqualTo(pwd);
         List<User> list = userMapper.selectByExample(userExample);
         if(list.isEmpty()){
-            return -1;
+            return null;
         }
-        return list.get(0).getId();
+        return list.get(0);
     }
 
     public Boolean checkToRegister(String account,String phone,String idc){
@@ -82,5 +82,26 @@ public class UserService {
 
     public Boolean confirmPassword(Integer id,String pwd){
         return userMapper.selectByPrimaryKey(id).getPassword().equals(pwd);
+    }
+
+    public List<User> findByName(UserExample userExample){
+        List<User> list = userMapper.selectByExample(userExample);
+        return list;
+    }
+
+    public void update(User user){
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public List<User> findbyid(int id){
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andIdEqualTo(id);
+        List<User> list = userMapper.selectByExample(userExample);
+        return list;
+    }
+
+    public void delete(int id){
+        userMapper.deleteByPrimaryKey(id);
     }
 }

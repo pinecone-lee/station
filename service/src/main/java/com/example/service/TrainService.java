@@ -7,6 +7,9 @@ import com.example.common.mapper.TrainMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +34,8 @@ public class TrainService {
         train.setStart(start);
         train.setTime(time);
         train.setCounts(counts);
-        return trainMapper.insert(train);
+        trainMapper.insert(train);
+        return train.getId();
     }
 
     public int reduce(int id){
@@ -77,7 +81,7 @@ public class TrainService {
         return list;
     }
 
-    public List<Train> findUnite(String come, String destination, Date date){
+    public List<Train> findUnite(String come, String destination, String date) {
         TrainExample trainExample = new TrainExample();
         trainExample.setOrderByClause("data desc,start desc");
         TrainExample.Criteria criteria = trainExample.createCriteria();
@@ -89,8 +93,14 @@ public class TrainService {
             criteria.andDestinationLike("%"+destination+"%");
 //            System.out.println("des不为空");
         }
-        if(date!=null){
-            criteria.andDataEqualTo(date);
+        if(date!=null&&!date.equals("")){
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                criteria.andDataEqualTo(df.parse(date));
+            }catch (Exception e){
+                return null;
+            }
+
         }
         return trainMapper.selectByExample(trainExample);
     }

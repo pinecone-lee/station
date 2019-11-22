@@ -102,7 +102,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.common.entity.Train" >
+  <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.example.common.entity.Train" >
     insert into train (id, come, destination, 
       data, start, time, counts
       )

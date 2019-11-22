@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="adminclient" />
         <module name="buyclient" />
         <module name="common" />
         <module name="feign" />
@@ -19,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="adminclient" target="1.8" />
       <module name="buyclient" target="1.8" />
       <module name="common" target="1.8" />
       <module name="feign" target="1.8" />
@@ -34,6 +36,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adminclient" options="-parameters" />
       <module name="buyclient" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="feign" options="-parameters" />
